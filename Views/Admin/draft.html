@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Course Project">
+    <link rel="stylesheet" href="/css/bootstrap4/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/courses.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Student Dashboard</title>
+</head>
+<body>
+    <div class="super_container">
+        <header class="header d-flex flex-row">
+            <div class="header_content d-flex flex-row align-items-center">
+                <div class="logo_container">
+                    <div class="logo">
+                        <img src="/images/logo.png" alt="University of Oxford">
+                        <span>My School</span>
+                    </div>
+                </div>
+                <nav class="main_nav_container">
+                    <div class="main_nav">
+                        <ul class="main_nav_list">
+                            <li class="main_nav_item"><a href="/Views/Admin/user_login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </nav>                
+            </div>
+        </header>
+
+        <br/>
+        <div class="popular page_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="section_title text-center">
+                            <h1 id="section-title">My Courses</h1>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="container filter-container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Course name:</label>
+                            <input type="text" id="filterCourseName" class="form-control" placeholder="Filter by Course Name">
+                        </div>
+                        <div class="col-md-3">
+                            <label>Start date:</label>
+                            <input type="date" id="filterStartDate" class="form-control" datetimeformat="dd/mm/yyyy" placeholder="Filter by Start Date">
+                        </div>
+                        <div class="col-md-3">
+                            <label>End date:</label>
+                            <input type="date" id="filterEndDate" class="form-control" datetimeformat="dd/mm/yyyy" placeholder="Filter by End Date">
+                        </div>
+                        <div class="col-md-3">
+                            <label>Course status:</label>
+                            <select id="filterState" class="form-control">
+                                <option value="">Filter by Status</option>
+                                <option value="OPEN">Open Courses</option>
+                                <option value="ACTIVE">Active Courses</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-bordered table-striped text-center">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Course ID</th>
+                                    <th>Course Name</th>
+                                    <th>Description</th>
+                                    <th>Duration</th>
+                                    <th>Available Seats</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="course-container">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="courseDetailsModal" tabindex="-1" role="dialog" aria-labelledby="updateCourseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form id="updateCourseForm">
+                    <div class="modal-header" style="background-color: black; color: white;">
+                        <h4 class="modal-title" id="courseDetailsModalLabel">Course Details</h4>
+                        <button type="button" class="close" style="color: white;" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="courseId"><strong>Course ID:</strong></label>
+                            <p id="modalCourseId" class="form-control"></p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="courseName"><strong>Course Name:</strong></label>
+                            <p id="modalCourseName" class="form-control"></p>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseDetails"><strong>Course Description:</strong></label>
+                            <p id="modalCourseDetails" class="form-control"></p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="duration"><strong>Duration:</strong></label>
+                                <p id="modalDuration" class="form-control"></p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="availableSeats"><strong>Available Seats:</strong></label>
+                                <p id="modalAvailableSeats" class="form-control"></p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="startDate"><strong>Start Date:</strong></label>
+                                <p id="modalStartDate" class="form-control"></p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="endDate"><strong>End Date:</strong></label>
+                                <p id="modalEndDate" class="form-control"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="state"><strong>Status:</strong></label>
+                            <p id="modalState" class="form-control"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="enrollButton" class="btn btn-primary">Enroll</button>
+                        <button id="cancelEnrollmentButton" class="btn btn-danger">Cancel Enrollment</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script> 
+    function parseDate(dateString) {
+        const [day, month, year] = dateString.split('-'); 
+        const fullYear = year.length === 2 ? `20${year}` : year;
+        return new Date(`${fullYear}-${month}-${day}`); 
+    }
+
+        $(document).ready(function () {
+            const courseContainer = $('#course-container');
+            const apiUrl = 'http://127.0.0.1:5000/get_all_courses';
+            let selectedCourse = null;
+
+            function fetchAllCourses() {
+                courseContainer.html('<tr><td colspan="8" class="text-center">Loading courses...</td></tr>'); 
+                $.ajax({
+                    url: apiUrl,
+                    type: 'GET',
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    success: function (response) {
+                        const courses = response.courses;
+
+                        if (!courses || courses.length === 0) {
+                            courseContainer.html('<tr><td colspan="8" class="text-muted">No courses found. Create your first course!</td></tr>');
+                            return;
+                        }
+
+                        courseContainer.empty(); 
+                        courses.forEach(course => {
+                            const shortDescription = course.course_details.length > 40
+                            ? course.course_details.substring(0, 40) + '...'
+                            : course.course_details;
+                            const courseRow = `
+                                <tr>
+                                    <td>${course.course_id}</td>
+                                    <td>${course.course_name}</td>
+                                    <td title="${course.course_details}">${shortDescription}</td>
+                                    <td>${course.duration}</td>
+                                    <td>${course.available_seats}</td>
+                                    <td>${course.start_date}</td>
+                                    <td>${course.end_date}</td>
+                                    <td>${course.state}</td>
+                                    <td>
+                                        <button class="btn btn-primary detail-btn" data-course='${JSON.stringify(course)}'>Details</button>
+                                    </td>
+                                </tr>
+                            `;
+                            courseContainer.append(courseRow);
+                        });
+                    },
+                    error: function () {
+                        courseContainer.html('<tr><td colspan="8" class="text-danger">Failed to load courses. Please try again later.</td></tr>');
+                    }
+                });
+            }
+
+        fetchAllCourses();
+
+    function fetchFilteredCourses(course_name,start_date,state) {
+    const filters = {
+        course_name: $('#filterCourseName').val().trim(),
+        start_date: $('#filterStartDate').val(),
+        end_date: $('#filterEndDate').val(),
+        state: $('#filterState').val(),
+    };
+
+    courseContainer.html('<tr><td colspan="8" class="text-center">Loading courses...</td></tr>');
+
+    $.ajax({
+        url: 'http://127.0.0.1:5000/filter_courses', 
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(filters), 
+        xhrFields: {withCredentials: true},
+        success: function (response) {
+            const courses = response.courses;
+
+            if (!courses || courses.length === 0) {
+                courseContainer.html('<tr><td colspan="8" class="text-muted">No courses match the filter criteria.</td></tr>');
+                return;
+            }
+
+            courseContainer.empty();
+            courses.forEach(course => {
+                const shortDescription = course.course_details.length > 40
+                ? course.course_details.substring(0, 40) + '...'
+                : course.course_details;
+                const courseRow = `
+                    <tr>
+                        <td>${course.course_id}</td>
+                        <td>${course.course_name}</td>
+                        <td title="${course.course_details}">${shortDescription}</td>
+                        <td>${course.duration}</td>
+                        <td>${course.available_seats}</td>
+                        <td>${course.start_date}</td>
+                        <td>${course.end_date}</td>
+                        <td>${course.state}</td>
+                        <td>
+                            <button class="btn btn-primary detail-btn" data-course='${JSON.stringify(course)}'>Detail</button>
+                        </td>
+                    </tr>
+                `;
+                courseContainer.append(courseRow);
+            });
+        },
+        error: function (xhr) {
+            console.error('Error fetching filtered courses:', xhr.responseText);
+            courseContainer.html('<tr><td colspan="8" class="text-danger">Failed to fetch courses. Please try again.</td></tr>');
+        }
+    });
+}
+
+fetchAllCourses();
+
+    function fetchFilteredCourses(course_name, start_date, state) {
+        courseContainer.html('<tr><td colspan="8" class="text-center">Loading courses...</td></tr>'); 
+        $.ajax({
+            url: 'http://127.0.0.1:5000/filter_courses',  
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({course_name:course_name, start_date:start_date, state: state }), 
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (response) {
+                const courses = response.courses;
+
+                if (!courses || courses.length === 0) {
+                    courseContainer.html('<tr><td colspan="8" class="text-muted">No courses found for this state.</td></tr>');
+                    return;
+                }
+
+                courseContainer.empty(); 
+                courses.forEach(course => {
+                    const courseRow = `
+                        <tr>
+                            <td>${course.course_id}</td>
+                            <td>${course.course_name}</td>
+                            <td>${course.course_details}</td>
+                            <td>${course.duration}</td>
+                            <td>${course.available_seats}</td>
+                            <td>${course.start_date}</td>
+                            <td>${course.end_date}</td>
+                            <td>${course.state}</td>
+                            <td>
+                                <button class="btn btn-primary detail-btn" data-course='${JSON.stringify(course)}'>Detail</button>
+                            </td>
+                        </tr>
+                    `;
+                    courseContainer.append(courseRow);
+                });
+            },
+            error: function () {
+                courseContainer.html('<tr><td colspan="8" class="text-danger">Failed to filter courses by state. Please try again later.</td></tr>');
+            }
+        });
+    }
+
+    fetchAllCourses();
+
+    $(document).ready(function (course_name, start_date, state) {
+    const courseContainer = $('#course-container');
+    const apiUrl = "http://127.0.0.1:5000/filter_courses";
+    let selectedCourse = null;
+
+    function fetchFilteredCourses() {
+        const filters = {
+            course_name: $('#filterCourseName').val().trim(),
+            start_date: $('#filterStartDate').val(),
+            end_date: $('#filterEndDate').val(),
+            state: $('#filterState').val()
+        };
+
+        courseContainer.html('<tr><td colspan="8" class="text-center">Loading courses...</td></tr>');
+
+        $.ajax({
+            url: apiUrl,
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(filters),
+            xhrFields: {
+                withCredentials: true
+            },
+
+            success: function (response) {const courses = response.courses;
+
+                if (!courses || courses.length === 0) {
+                    courseContainer.html('<tr><td colspan="8" class="text-muted">No courses match the filter criteria.</td></tr>');
+                    return;
+                }
+
+                courseContainer.empty();
+                courses.forEach(course => {
+                    const shortDescription = course.course_details.length > 40
+                    ? course.course_details.substring(0, 40) + '...'
+                    : course.course_details;
+                    const courseRow = `
+                        <tr>
+                            <td>${course.course_id}</td>
+                            <td>${course.course_name}</td>
+                            <td title="${course.course_details}">${shortDescription}</td>
+                            <td>${course.duration}</td>
+                            <td>${course.available_seats}</td>
+                            <td>${course.start_date}</td>
+                            <td>${course.end_date}</td>
+                            <td>${course.state}</td>
+                            <td>
+                                <button class="btn btn-primary detail-btn" data-course='${JSON.stringify(course)}'>Detail</button>
+                            </td>
+                        </tr>
+                    `;
+                    courseContainer.append(courseRow);
+                });
+            },
+            error: function (xhr) {
+                courseContainer.html('<tr><td colspan="8" class="text-danger">Failed to fetch courses. Please try again.</td></tr>');
+            }
+        });
+    }
+
+    $('#filterCourseName').on('input', fetchFilteredCourses);
+    $('#filterStartDate').on('change', fetchFilteredCourses);
+    $('#filterEndDate').on('change', fetchFilteredCourses);
+    $('#filterState').on('change', fetchFilteredCourses);
+
+    fetchFilteredCourses();
+    });
+
+    // Open modal and display course details
+    courseContainer.on('click', '.detail-btn', function () {
+        selectedCourse = $(this).data('course');
+        $('#modalCourseId').text(selectedCourse.course_id);
+        $('#modalCourseName').text(selectedCourse.course_name);
+        $('#modalCourseDetails').text(selectedCourse.course_details);
+        $('#modalDuration').text(selectedCourse.duration);
+        $('#modalAvailableSeats').text(selectedCourse.available_seats);
+        $('#modalStartDate').text(selectedCourse.start_date);
+        $('#modalEndDate').text(selectedCourse.end_date);
+        $('#modalState').text(selectedCourse.state);
+        $('#courseDetailsModal').modal('show');
+    });
+
+    // Handle enrollment
+    $('#enrollButton').on('click', async function () {
+        if (!selectedCourse) return;
+        try {
+            const response = await fetch("http://127.0.0.1:5000/enroll_student", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ course_id: selectedCourse.course_id }),
+                credentials: "include"
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert("Successfully enrolled in the course!");
+                $('#courseDetailsModal').modal('hide');
+            } else {
+                alert(`Failed to enroll: ${result.message || result.error}`);
+            }
+        } catch (error) {
+            console.error("Error enrolling:", error);
+            alert("An unexpected error occurred. Please try again.");
+        }
+    });
+
+    // Handle cancel enrollment
+    $('#cancelEnrollmentButton').on('click', async function () {
+        if (!selectedCourse) return;
+
+        try {
+            const response = await fetch("http://127.0.0.1:5000/cancel_enrollment", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ course_id: selectedCourse.course_id }),
+                credentials: "include"
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert("Successfully canceled enrollment!");
+                $('#courseDetailsModal').modal('hide');
+            } else {
+                alert(`Failed to cancel enrollment: ${result.message || result.error}`);
+            }
+        } catch (error) {
+            console.error("Error canceling enrollment:", error);
+            alert("An unexpected error occurred. Please try again.");
+        }
+    });
+
+});
+    </script>
+</body>
+</html>

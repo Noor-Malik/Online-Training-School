@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="main">
+    <section class="sign-in">
+        <div class="container">
+            <div class="signin-content">
+                <div class="signin-form">
+                    <h2 class="form-title">Update Profile</h2>
+                    <form method="POST" class="register-form" id="update-profile-form">
+
+                        <!-- Name Field -->
+                        <div class="inputlogin-form">
+                            <input type="text" name="name" required id="name" autocomplete="off">
+                            <label>Name</label>
+                        </div>
+
+                        <!-- Age Field -->
+                        <div class="inputlogin-form">
+                            <input type="number" name="age" required id="age" autocomplete="off" min="1" max="120">
+                            <label>Age</label>
+                        </div>
+
+                        <!-- Address Field -->
+                        <div class="inputlogin-form">
+                            <input type="text" name="address" required id="address" autocomplete="off">
+                            <label>Address</label>
+                        </div>
+
+                        <!-- Phone Number Field -->
+                        <div class="inputlogin-form">
+                            <input type="tel" name="phoneNumber" required id="phone" autocomplete="off" pattern="[0-9]{10}">
+                            <label>Phone Number</label>
+                        </div>
+
+                        <div class="form-group form-button">
+                            <input type="submit" name="update-profile" id="update-profile" class="form-submit" value="Update Profile"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+
+<script>
+    document.getElementById("update-profile-form").addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        // Collect form values
+        const name = document.getElementById("name").value;
+        const age = document.getElementById("age").value;
+        const address = document.getElementById("address").value;
+        const phone_number = document.getElementById("phone").value;  // Updated key
+        const submitButton = document.getElementById("update-profile");
+
+        // Prepare profileData object
+        const profileData = { name, age, address, phone_number };  // Ensure backend expects "phone_number"
+
+        submitButton.disabled = true;
+        submitButton.value = "Updating...";
+
+        try {
+            const response = await fetch('http://127.0.0.1:5000/updateProfile', {
+                method: 'POST',
+                credentials: "include",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(profileData),
+            });
+
+            let result;
+            if (response.ok) {
+                result = await response.json();
+                alert(result.message || "Profile updated successfully!");
+            } else {
+                try {
+                    result = await response.json();
+                    alert("Error: " + (result.error || "Failed to update profile"));
+                } catch {
+                    const text = await response.text();
+                    console.error("Server response not JSON:", text);
+                    alert("An error occurred. Please try again.");
+                }
+            }
+        } catch (error) {
+            console.error("Network error or server is unreachable:", error);
+            alert("An error occurred. Please try again.");
+        } finally {
+            submitButton.disabled = false;
+            submitButton.value = "Update Profile";
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Login Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="main">
+    <section class="sign-in">
+        <div class="container">
+            <div class="signin-content">
+                <div class="signin-image">
+                    <figure><img src="/images/signin-image.jpg" alt="sign in image"></figure>
+                </div>
+                <div class="signin-form">
+                    <h2 class="form-title">User Login</h2>
+                    <form method="POST" class="register-form" id="login-form">
+                        <div class="inputlogin-form">
+                            <input type="email" name="email" required id="email" autocomplete="off">
+                            <label for="email" class="form-label">User Email</label>
+                            <input type="hidden" name="fake" autocomplete="off">
+                        </div>
+                        
+                        <div class="inputlogin-form">
+                            <input type="password" name="pass" required id="pass" autocomplete="off">
+                            <label>Password</label>
+                            <i class="zmdi zmdi-eye toggle-password" onclick="toggleVisibility('pass', this)"></i>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="type" id="type" required>
+                                <option value="">Select User Type</option>
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <a href="/Views/Admin/forget_password.html" class="signup-image-link">Forget Password</a>
+                        <a href="/Views/Admin/user_register.html" class="signup-image-link">Not a Member</a>
+                        <div class="form-group form-button">
+                            <input type="submit" name="signin" id="signin" class="form-submit" value="Login"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    function toggleVisibility(inputId, iconElement) {
+        const inputField = document.getElementById(inputId);
+        if (inputField.type === 'password') {
+            inputField.type = 'text';
+            iconElement.classList.replace('zmdi-eye', 'zmdi-eye-off');
+        } else {
+            inputField.type = 'password';
+            iconElement.classList.replace('zmdi-eye-off', 'zmdi-eye');
+        }
+    }
+
+    document.getElementById("login-form").addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('pass').value.trim();
+    const userType = document.getElementById('type').value;
+
+    if (!email || !password || !userType) {
+        alert('Please fill out all fields.');
+        return;
+    }
+
+    const data = { email, password, userType };
+
+    try {
+        const response = await fetch('http://127.0.0.1:5000/user_login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+            body: JSON.stringify({email,password, userType}),
+            credentials: "include",
+        });
+
+        console.debug("Request sent to server.");
+
+        const result = await response.json();
+        console.debug("Full server response:", result);
+
+        if (response.ok) {
+            console.debug("Full server response:", result);
+                const userType = result.userType;
+
+                // console.debug(`User Type (from server): ${userType}`);
+                console.debug("User Type (from server):", userType);
+
+                if (userType === "teacher") {
+                    console.info("Redirecting to teacher dashboard.");
+                    window.location.href = '/Views/Admin/teacher_dash.html';
+                } else if (userType === "student") {
+                    console.info("Redirecting to student dashboard.");
+                    window.location.href = '/Views/Admin/student_dash.html';
+                } else if (userType === "admin") {
+                    console.info("Redirecting to admin dashboard.");
+                    window.location.href = '/Views/Admin/admin_dash.html';
+                } else {
+                    console.error("Invalid user type received:", userType);
+                    alert("Invalid user type received. Please contact support.");
+                }
+            } else if (response.status === 401) {
+                console.warn("Authentication failed: Invalid email or password.");
+                alert('Invalid email or password. Please try again.');
+            } else {
+                console.error(`Server error: ${result.message || 'An unexpected error occurred.'}`);
+                alert(`Error: ${result.message || 'An unexpected error occurred.'}`);
+            }
+        } catch (error) {
+            console.error('Error during login:', error);
+            alert('There was an issue logging in. Please check your connection or try again.');
+        }
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Course Project">
+    <link rel="stylesheet" href="/css/bootstrap4/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/courses.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Teacher Dashboard</title>
+</head>
+<body>
+    <div class="super_container">
+        <header class="header d-flex flex-row">
+            <div class="header_content d-flex flex-row align-items-center">
+                <div class="logo_container">
+                    <div class="logo">
+                        <img src="/images/logo.png" alt="University of Oxford">
+                        <span>My School   --Teacher's Dashboard</span>
+                    </div>
+                </div>
+                <nav class="main_nav_container">
+                    <div class="main_nav">
+                        <ul class="main_nav_list">
+                            <li class="main_nav_item"><a href="/Views/Admin/create_course.html">Create Course</a></li>
+                            <li class="main_nav_item"><a href="/Views/Admin/user_login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </nav>                
+            </div>
+        </header>
+
+        <br/>
+        <div class="popular page_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="section_title text-center">
+                            <h1 id="section-title">My Courses</h1>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="container filter-container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Course name:</label>
+                            <input type="text" id="filterCourseName" class="form-control" placeholder="Filter by Course Name">
+                        </div>
+                        <div class="col-md-3">
+                            <label>Start date:</label>
+                            <input type="date" id="filterStartDate" class="form-control" datetimeformat="dd/mm/yyyy" placeholder="Filter by Start Date">
+                        </div>
+                        <div class="col-md-3">
+                            <label>End date:</label>
+                            <input type="date" id="filterEndDate" class="form-control" datetimeformat="dd/mm/yyyy" placeholder="Filter by End Date">
+                        </div>
+                        <div class="col-md-3">
+                            <label>Course status:</label>
+                            <select id="filterState" class="form-control">
+                                <option value="">Filter by Status</option>
+                                <option value="OPEN">Open Courses</option>
+                                <option value="PENDING FOR APPROVAL">Pending Courses</option>
+                                <option value="ACTIVE">Active Courses</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-bordered table-striped text-center">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Course ID</th>
+                                    <th>Course Name</th>
+                                    <th>Description</th>
+                                    <th>Duration</th>
+                                    <th>Available Seats</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                    <th>HomeWork</th>
+                                </tr>
+                            </thead>
+                            <tbody id="course-container">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="updateCourseModal" tabindex="-1" role="dialog" aria-labelledby="updateCourseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form id="updateCourseForm">
+                    <div class="modal-header" style="background-color: black; color: white;">
+                        <h4 class="modal-title" id="updateCourseModalLabel">Course Details</h4>
+                        <button type="button" class="close" style="color: white;" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="courseId"><strong>Course ID:</strong></label>
+                            <input type="text" class="form-control" id="courseId" name="courseId" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="courseName"><strong>Course Name:</strong></label>
+                            <input type="text" class="form-control" id="courseName" name="courseName" required>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseDetails"><strong>Course Description:</strong></label>
+                            <textarea class="form-control" id="courseDetails" name="courseDetails" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="duration"><strong>Duration:</strong></label>
+                                <input type="text" class="form-control" id="duration" name="duration" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="availableSeats"><strong>Available Seats:</strong></label>
+                                <input type="number" class="form-control" id="availableSeats" name="availableSeats" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="startDate"><strong>Start Date:</strong></label>
+                                <input type="date" class="form-control" id="startDate" name="startDate" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="endDate"><strong>End Date:</strong></label>
+                                <input type="date" class="form-control" id="endDate" name="endDate" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="state"><strong>Status:</strong></label>
+                            <input type="text" class="form-control" id="state" name="state" readonly>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="button" class="btn btn-primary upload-course-btn" id="createAssignmentBtn">Create Assignment</button>
+                        <button type="button" class="btn btn-primary uploaded-course-btn" id="createAssessmentBtn">Create Assessment</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="uploadCourseModal" tabindex="-1" role="dialog" aria-labelledby="uploadCourseModalLable" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form id="uploadCourseForm" enctype="multipart/form-data">
+                    <div class="modal-header" style="background-color: black; color: white;">
+                        <h4 class="modal-title" id="uploadCourseModalLabel">Assignment Details</h4>
+                        <button type="button" class="close" style="color: white;" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="assignmentName"><strong>Assignment Name:</strong></label>
+                        <input type="text" class="form-control" id="assignmentName" name="assignmentName" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Type"><strong>File Type:</strong></label>
+                        <input type="text" class="form-control" id="Type" value="Course Assignment" name="Type" readonly>
+                    </div>
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="fileType"><strong>File Type:</strong></label>
+                        <input type="text" class="form-control" id="fileType" value="assignment" name="fileType">
+                    </div>
+                    <div class="form-group">
+                        <label for="file"><strong>File Path:</strong></label>
+                        <input type="file" class="form-control" id="filePath" name="file" required>
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="uploadedAt"><strong>Uploaded At:</strong></label>
+                        <input type="datetime-local" class="form-control" id="uploadedAt" name="uploadedAt">
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="status"><strong>Status:</strong></label>
+                        <input type="text" class="form-control" id="status" value="OPEN" name="status">
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Upload PDF</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="uploadedCourseModal" tabindex="-1" role="dialog" aria-labelledby="uploadedCourseModalLable" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form id="uploadedCourseForm" enctype="multipart/form-data">
+                    <div class="modal-header" style="background-color: black; color: white;">
+                        <h4 class="modal-title" id="uploadCourseModalLabel">Assessment Details</h4>
+                        <button type="button" class="close" style="color: white;" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="assessmentName"><strong>Assessment Name:</strong></label>
+                        <input type="text" class="form-control" id="assessmentName" name="assessmentName" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Type"><strong>File Type:</strong></label>
+                        <input type="text" class="form-control" id="Type" value="Course Assessment" name="Type" readonly>
+                    </div>
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="fileType"><strong>File Type:</strong></label>
+                        <input type="text" class="form-control" id="fileType" value="assessment" name="fileType">
+                    </div>
+                    <div class="form-group">
+                        <label for="file"><strong>File Path:</strong></label>
+                        <input type="file" class="form-control" id="filePath" name="file" required>
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="uploadedAt"><strong>Uploaded At:</strong></label>
+                        <input type="datetime-local" class="form-control" id="uploadedAt" name="uploadedAt">
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="status"><strong>Status:</strong></label>
+                        <input type="text" class="form-control" id="status" value="OPEN" name="status">
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Upload PDF</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="assignWorkModal" tabindex="-1" role="dialog" aria-labelledby="assignWorkModalLable" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form id="assignWorkForm">
+                    <div class="modal-header" style="background-color: black; color: white;">
+                        <h4 class="modal-title" id="assignWorkModalLabel">Assign HomeWork</h4>
+                        <button type="button" class="close" style="color: white;" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <table class="table table-bordered table-striped text-center">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>File Id:</th>
+                                            <th>Homework Name:</th>
+                                            <th>Work Type:</th>
+                                            <th>Status:</th>
+                                            <th>Action:</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="work-container">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script> 
+    function parseDate(dateString) {
+        const [day, month, year] = dateString.split('-'); 
+        const fullYear = year.length === 2 ? `20${year}` : year;
+        return new Date(`${fullYear}-${month}-${day}`); 
+    }
+
+    const now = new Date();
+    const formattedDateTime = now.toISOString().slice(0, 16);
+    document.getElementById('uploadedAt').value = formattedDateTime;
+
+    $(document).ready(function () {
+        const courseContainer = $('#course-container');
+        const apiUrl = 'http://127.0.0.1:5000/get_teacher_courses';
+
+    function fetchAllCourses() {
+                courseContainer.html('<tr><td colspan="8" class="text-center">Loading courses...</td></tr>'); 
+                $.ajax({
+                    url: apiUrl,
+                    type: 'GET',
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    success: function (response) {
+                        const courses = response.courses;
+
+                        if (!courses || courses.length === 0) {
+                            courseContainer.html('<tr><td colspan="8" class="text-muted">No courses found. Create your first course!</td></tr>');
+                            return;
+                        }
+
+                        courseContainer.empty(); 
+                        courses.forEach(course => {
+                            const shortDescription = course.course_details.length > 40
+                            ? course.course_details.substring(0, 40) + '...'
+                            : course.course_details;
+                            const courseRow = `
+                                <tr>
+                                    <td>${course.course_id}</td>
+                                    <td>${course.course_name}</td>
+                                    <td title="${course.course_details}">${shortDescription}</td>
+                                    <td>${course.duration}</td>
+                                    <td>${course.available_seats}</td>
+                                    <td>${course.start_date}</td>
+                                    <td>${course.end_date}</td>
+                                    <td>${course.state}</td>
+                                    <td>
+                                        <button class="btn btn-primary update-course-btn" data-course='${JSON.stringify(course)}'>Details</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary update-work-btn" data-work='${JSON.stringify(course)}'>Assign Work</button>
+                                    </td>
+                                </tr>
+                            `;
+                            courseContainer.append(courseRow);
+                        });
+                    },
+                    error: function () {
+                        courseContainer.html('<tr><td colspan="8" class="text-danger">Failed to load courses. Please try again later.</td></tr>');
+                    }
+                });
+            }
+
+    $(document).ready(function () {
+        $('#updateCourseForm').submit(function (event) {
+        event.preventDefault();
+
+        const updatedCourseData = {
+            course_id: $('#updateCourseModal').data('course-id'), 
+            course_name: $('#courseName').val(),
+            course_details: $('#courseDetails').val(),
+            duration: $('#duration').val(),
+            available_seats: parseInt($('#availableSeats').val(), 10),
+            start_date: $('#startDate').val(),
+            end_date: $('#endDate').val(),
+            state: $('#state').val()
+        };
+
+        console.log("Sending update data:", updatedCourseData);
+
+        $.ajax({
+            url: 'http://127.0.0.1:5000/update_course',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(updatedCourseData),
+            xhrFields: {withCredentials: true},
+            success: function (response) {
+                alert(response.message || "Course updated successfully.");
+                $('#updateCourseModal').modal('hide');
+                fetchAllCourses(); 
+            },
+            error: function (xhr, status, error) {
+                alert("Failed to update the course: " + (xhr.responseJSON?.error || "Please try again later."));
+            }
+        });
+    });
+
+        $(document).on('click', '.update-course-btn', function () {
+            const course = $(this).data('course');
+            $('#updateCourseModal').data('course-id', course.course_id); 
+            $('#courseName').val(course.course_name);
+            $('#courseDetails').val(course.course_details);
+            $('#duration').val(course.duration);
+            $('#availableSeats').val(course.available_seats);
+            $('#startDate').val(parseDate(course.start_date).toISOString().split('T')[0]);
+            $('#endDate').val(parseDate(course.end_date).toISOString().split('T')[0]);
+            $('#state').val(course.state);
+            $('#updateCourseModal').modal('show');
+        });
+        });
+
+    $(document).ready(function () {
+        $('#uploadCourseForm').submit(function (event) {
+        event.preventDefault();
+
+        const now = new Date();
+        const formattedDateTime = now.toISOString().slice(0, 16); 
+        document.getElementById('uploadedAt').value = formattedDateTime;
+
+        const formData = new FormData();
+        formData.append('file', $('#filePath')[0].files[0]); 
+        formData.append('course_id', $('#updateCourseModal').data('course-id'));
+        formData.append('assignment_name', $('#assignmentName').val());
+        formData.append('file_type', $('#fileType').val());
+        formData.append('uploaded_at', $('#uploadedAt').val());
+        formData.append('status', $('#status').val());
+
+        for (const [key, value] of formData.entries()) {console.log(key, value);}
+
+        $.ajax({
+            url: 'http://127.0.0.1:5000/create_assignment',
+            type: 'POST',
+            processData: false,  
+            contentType: false, 
+            data: formData,
+            xhrFields: {withCredentials: true},
+            success: function (response) {
+                alert(response.message || "Course uploaded successfully.");
+                $('#uploadCourseModal').modal('hide');
+                fetchAllCourses(); 
+            },
+            error: function (xhr, status, error) {
+                alert("Failed to upload the course: " + (xhr.responseJSON?.error || "Please try again later."));
+            }
+        });
+        });
+        });
+
+    $(document).ready(function () {
+        $('#uploadedCourseForm').submit(function (event) {
+        event.preventDefault();
+
+        const now = new Date();
+        const formattedDateTime = now.toISOString().slice(0, 16); 
+        document.getElementById('uploadedAt').value = formattedDateTime;
+
+        const formData = new FormData();
+        formData.append('file', $('#filePath')[0].files[0]); 
+        formData.append('course_id', $('#updateCourseModal').data('course-id'));
+        formData.append('assignment_name', $('#assessmentName').val());
+        formData.append('file_type', $('#fileType').val());
+        formData.append('uploaded_at', $('#uploadedAt').val());
+        formData.append('status', $('#status').val());
+
+        for (const [key, value] of formData.entries()) {console.log(key, value);}
+
+        $.ajax({
+            url: 'http://127.0.0.1:5000/create_assignment',
+            type: 'POST',
+            processData: false,  
+            contentType: false,  
+            data: formData,
+            xhrFields: {withCredentials: true},
+            success: function (response) {
+                alert(response.message || "Course uploaded successfully.");
+                $('#uploadedCourseModal').modal('hide');
+                fetchAllCourses(); 
+            },
+            error: function (xhr, status, error) {
+                alert("Failed to upload the course: " + (xhr.responseJSON?.error || "Please try again later."));
+            }
+        });
+        });
+        });
+
+    $(document).ready(function () {
+    const apiUrl = "http://127.0.0.1:5000/filter_courses"; 
+    const courseContainer = $('#course-container');
+
+    function fetchFilteredCourses() {
+        const filters = {
+            course_name: $('#filterCourseName').val().trim(),
+            start_date: $('#filterStartDate').val(),
+            end_date: $('#filterEndDate').val(),
+            state: $('#filterState').val()
+        };
+
+        courseContainer.html('<tr><td colspan="8" class="text-center">Loading courses...</td></tr>');
+
+        $.ajax({
+            url: apiUrl,
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(filters),
+            xhrFields: {
+                withCredentials: true
+            },
+
+            success: function (response) {const courses = response.courses;
+
+                if (!courses || courses.length === 0) {
+                    courseContainer.html('<tr><td colspan="8" class="text-muted">No courses match the filter criteria.</td></tr>');
+                    return;
+                }
+
+                courseContainer.empty();
+                courses.forEach(course => {
+                    const shortDescription = course.course_details.length > 40
+                    ? course.course_details.substring(0, 40) + '...'
+                    : course.course_details;
+                    const courseRow = `
+                        <tr>
+                            <td>${course.course_id}</td>
+                            <td>${course.course_name}</td>
+                            <td title="${course.course_details}">${shortDescription}</td>
+                            <td>${course.duration}</td>
+                            <td>${course.available_seats}</td>
+                            <td>${course.start_date}</td>
+                            <td>${course.end_date}</td>
+                            <td>${course.state}</td>
+                            <td>
+                                <button class="btn btn-primary update-course-btn" data-course='${JSON.stringify(course)}'>Detail</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary update-work-btn" data-work='${JSON.stringify(course)}'>Assign Work</button>
+                            </td>
+                        </tr>
+                    `;
+                    courseContainer.append(courseRow);
+                });
+            },
+            error: function (xhr) {
+                courseContainer.html('<tr><td colspan="8" class="text-danger">Failed to fetch courses. Please try again.</td></tr>');
+            }
+        });
+    }
+
+    $('#filterCourseName').on('input', fetchFilteredCourses);
+    $('#filterStartDate').on('change', fetchFilteredCourses);
+    $('#filterEndDate').on('change', fetchFilteredCourses);
+    $('#filterState').on('change', fetchFilteredCourses);
+
+    fetchFilteredCourses();
+});
+
+    $(document).ready(function () {
+            const workContainer = $('#work-container'); 
+            const apiUrl = 'http://127.0.0.1:5000/get_course_homework'; 
+
+            $('#course-container').on('click', '.update-work-btn', function () {
+                const courseData = $(this).data('work'); 
+                const courseId = courseData.course_id;
+
+                workContainer.html('<tr><td colspan="5" class="text-center">Loading homework...</td></tr>');
+
+                $.ajax({
+                    url: apiUrl,
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ course_id: courseId }),
+                    success: function (response) {
+                        const works = response.works;
+                        workContainer.empty();
+
+                        if (!works || works.length === 0) {
+                            workContainer.html('<tr><td colspan="5" class="text-muted">No homework assigned yet.</td></tr>');
+                            return;
+                        }
+
+                        works.forEach(work => {
+                            const workRow = `
+                                <tr>
+                                    <td>${work.file_id}</td>
+                                    <td>${work.assignment_name}</td>
+                                    <td>${work.file_type}</td>
+                                    <td>${work.status}</td>
+                                    <td>
+                                        <button class="btn btn-primary assign-work-btn" data-id="${work.file_id}">Assign</button>
+                                    </td>
+                                </tr>
+                            `;
+                            workContainer.append(workRow);
+                        });
+                    },
+                    error: function () {
+                        workContainer.html('<tr><td colspan="5" class="text-danger">Failed to load homework. Please try again.</td></tr>');
+                    }
+                });
+
+                $('#assignWorkModal').modal('show');
+            });
+        });
+     
+    $(document).ready(function () {
+    const workContainer = $('#work-container');
+    const assignApiUrl = 'http://127.0.0.1:5000/assign_work'; 
+
+    workContainer.on('click', '.assign-work-btn', function () {
+        const button = $(this); 
+        const fileId = button.data('id'); 
+
+        const data = {
+            file_id: fileId,
+            assignment_name: "Some Assignment"
+        };
+
+        $.ajax({
+            url: assignApiUrl,
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function (response) {
+                button.closest('tr').find('td:nth-child(4)').text('ACTIVE');
+                alert(response.message || "Status updated successfully!");
+            },
+            error: function (xhr) {
+                alert(xhr.responseJSON.error || "Failed to update status.");
+            }
+        });
+    });
+});
+
+    $(document).ready(function () {
+    $('#uploadCourseModal').on('show.bs.modal', function () {
+        const form = $(this).find('form')[0]; 
+        if (form) {
+            form.reset(); 
+        }
+    });
+
+    $(document).on('click', '.upload-course-btn', function () {
+        $('#uploadCourseModal').modal('show');
+    });
+    });
+
+    $(document).ready(function () {
+    $('#uploadedCourseModal').on('show.bs.modal', function () {
+        const form = $(this).find('form')[0]; 
+        if (form) {
+            form.reset(); 
+        }
+    });
+
+    $(document).on('click', '.uploaded-course-btn', function () {
+        $('#uploadedCourseModal').modal('show');
+    });
+    });
+
+    $(document).ready(function () {
+    $('#createAssignmentBtn').on('click', function () {
+        $('#updateCourseModal').modal('hide');
+        $('#uploadCourseModal').modal('show');
+    });
+    });
+
+    $(document).ready(function () {
+    $('#createAssessmentBtn').on('click', function () {
+        $('#updateCourseModal').modal('hide');
+        $('#uploadedCourseModal').modal('show');
+    });
+    });
+
+    $(document).on('click', '.update-course-btn', function () {
+            const course = $(this).data('course');
+            $('#courseId').val(course.course_id);
+            $('#courseName').val(course.course_name);
+            $('#courseDetails').val(course.course_details);
+            $('#duration').val(course.duration);
+            $('#availableSeats').val(course.available_seats);
+            $('#startDate').val(parseDate(course.start_date).toISOString().split('T')[0]);
+            $('#endDate').val(parseDate(course.end_date).toISOString().split('T')[0]);
+            $('#state').val(course.state);
+            $('#userId').val(course.user_id);
+            $('#updateCourseModal').modal('show');
+        });
+    
+    });
+</script>
+
+</body>
+</html>
+

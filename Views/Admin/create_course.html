@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/courses.css">
+  <title>Course Registration Form</title>
+</head>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f0f4fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  width: 500px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.form-header {
+  background-color: #5a67d8;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.form-header h1 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.form-header p {
+  font-size: 0.9rem;
+}
+
+.course-form {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 0.9rem;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #5a67d8;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #5a67d8;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #4c51bf;
+}
+
+</style>
+<body>
+  <div class="form-container">
+    <div class="form-header">
+      <h1>📖 Course Registration Form</h1>
+      <p>Create a new course in the system</p>
+    </div>
+    <form method="post" class="course-form" id="create_course">
+      <div class="form-group">
+        <label for="courseName">Course Name</label>
+        <input type="text" id="courseName" placeholder="Enter course name" required>
+      </div>
+      <div class="form-group">
+        <label for="courseDetails">Course Details</label>
+        <textarea id="courseDetails" placeholder="Enter course details" required></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="duration">Duration</label>
+          <input type="text" id="duration" placeholder="e.g., 6 weeks" required>
+        </div>
+        <div class="form-group">
+          <label for="availableSeats">Available Seats</label>
+          <input type="number" id="availableSeats" placeholder="Enter available seats" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="startDate">Start Date</label>
+          <input type="date" id="startDate" required>
+        </div>
+        <div class="form-group">
+          <label for="endDate">End Date</label>
+          <input type="date" id="endDate" required>
+        </div>
+      </div>
+      <div class="form-group hidden">
+        <label for="state">Course State</label>
+        <input type="text" id="state" name="state" value="PENDING FOR APPROVAL">
+      </div>    
+      <button type="submit" class="submit-button">Create Course</button>
+    </form>
+  </div>
+<script>
+    document.getElementById("create_course").addEventListener("submit", async function(event) {
+        event.preventDefault(); 
+
+        const course_name = document.getElementById("courseName").value;    
+        const course_details = document.getElementById("courseDetails").value;
+        const duration = document.getElementById("duration").value;
+        const available_seats = document.getElementById("availableSeats").value;
+        const start_date = document.getElementById("startDate").value;
+        const end_date = document.getElementById("endDate").value;
+        const state = document.getElementById("state").value;
+    
+        const data = {
+            course_name: course_name,
+            course_details: course_details,
+            duration: duration,
+            available_seats: available_seats,
+            start_date: start_date,
+            end_date: end_date,
+            state: state
+        };
+
+        try {
+            const response = await fetch("http://127.0.0.1:5000/create_course", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+                credentials:"include",
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                window.location.href = '/Views/Admin/teacher_dash.html';
+            } else {
+                alert(`Failed to create course: ${result.error}`);
+            }
+        } catch (error) {
+            console.error("Error during course creation:", error);
+            alert("An unexpected error occurred. Please try again.");
+        }
+    });
+</script>
+</body>
+</html>
