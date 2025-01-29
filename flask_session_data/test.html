@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <!--Courses-->
+    <div class="popular page_section">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section_title text-center">
+                        <h1>Our Popular Courses</h1>
+                    </div>
+                </div>
+            </div>
+
+        <div class="row course_boxes">
+                <div class="col-md-4 course_box">
+                    <div class="card">
+                        <img class="card-img-top" src="/images/course_1.jpg" alt="Course Image">
+                        <div class="card-body text-center">
+                            <div class="card-title">Introduction to programming</div>
+                            <div class="card-text">
+                                <a href="#" data-toggle="modal" data-target="#courseModal">Click for more..</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="courseModalLabel">About Course</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="card-Name">
+                            <span>Introduction to Programming</span>
+                            <img class="card-img" src="/images/course_3.jpg" alt="">
+                        </div>
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-text"><strong>Category:</strong> Computer Science</p>
+                                    <p class="card-text"><strong>Duration:</strong> 12 weeks</p>
+                                    <p class="card-text"><strong>Start Date:</strong> September 1, 2024</p>
+                                    <p class="card-text"><strong>End Date:</strong> November 24, 2024</p>
+                                    <p class="card-text"><strong>Syllabus:</strong> Introduction to basics, Control flow, Data structures, Functions, and Object-Oriented Programming.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" href="/Views/Admin/update_course.html" class="btn btn-primary">Update Course</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 course_box">
+                <div class="card">
+                 <img class="card-img-top" src="/images/course_4.jpg" alt="">
+                 <div class="card-body text-center">
+                    <div class="card-title">Introduction to Data</div>
+                    <div class="card-text">
+                        <a href="#" data-toggle="modal" data-target="#courseModal">Click for more..</a>
+                    </div>
+                 </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

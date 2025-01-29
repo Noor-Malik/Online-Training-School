@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (odoo18)" project-jdk-type="Python SDK" />
+=======
+  <component name="Black">
+    <option name="sdkName" value="Python 3.12 (WSProject)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (CRUD Functions)" project-jdk-type="Python SDK" />
+>>>>>>> 16c609f9172cee9e858e2cf4759a1b9dda8a5cd5
 </project>
