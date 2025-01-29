@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cead24f-986c-4fe3-9f90-b8d1b2186938" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/WSProject.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Course.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CourseEntrollment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBCourse.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBCourseEnrollment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBStudentHomework.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBTeacherAssignments.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBUser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBUserProfile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/REST.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StudentHomework.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TeacherAssignments.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/User.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserProfile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,35 +35,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.API.executor&quot;: &quot;Run&quot;,
-    &quot;Python.App.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Course.executor&quot;: &quot;Run&quot;,
-    &quot;Python.CourseEntrollment.executor&quot;: &quot;Run&quot;,
-    &quot;Python.DBCourse.executor&quot;: &quot;Run&quot;,
-    &quot;Python.DBCourseEnrollment.executor&quot;: &quot;Run&quot;,
-    &quot;Python.DBUser.executor&quot;: &quot;Run&quot;,
-    &quot;Python.DBUserProfile.executor&quot;: &quot;Run&quot;,
-    &quot;Python.OTExceptions.executor&quot;: &quot;Run&quot;,
-    &quot;Python.REST.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Tester.executor&quot;: &quot;Run&quot;,
-    &quot;Python.User.executor&quot;: &quot;Run&quot;,
-    &quot;Python.UserProfile.executor&quot;: &quot;Run&quot;,
-    &quot;Python.app.executor&quot;: &quot;Run&quot;,
-    &quot;Python.logging.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.new.executor&quot;: &quot;Run&quot;,
-    &quot;Python.python.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ainnie Desk/Downloads/materials-python-download-file-from-url-&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.API.executor": "Run",
+    "Python.App.executor": "Run",
+    "Python.Course.executor": "Run",
+    "Python.CourseEntrollment.executor": "Run",
+    "Python.DBCourse.executor": "Run",
+    "Python.DBCourseEnrollment.executor": "Run",
+    "Python.DBUser.executor": "Run",
+    "Python.DBUserProfile.executor": "Run",
+    "Python.OTExceptions.executor": "Run",
+    "Python.REST.executor": "Run",
+    "Python.Test.executor": "Run",
+    "Python.Tester.executor": "Run",
+    "Python.User.executor": "Run",
+    "Python.UserProfile.executor": "Run",
+    "Python.app.executor": "Run",
+    "Python.logging.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.new.executor": "Run",
+    "Python.python.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "G:/Internship/Backend Code"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\Internship\WSProject\uploads" />
@@ -203,11 +181,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.App" />
       <item itemvalue="Python.DBUser" />
       <item itemvalue="Python.OTExceptions" />
       <item itemvalue="Python.User" />
-      <item itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list>
