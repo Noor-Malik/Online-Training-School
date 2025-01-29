@@ -1,0 +1,433 @@
+INFO:App:Entering Register User
+INFO:User:Entering user registration
+INFO:User:User sidra@gmail registered successfully with userId: 189
+INFO:App:User registered successfully with userId: 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:05:49] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:09] "OPTIONS /user_login HTTP/1.1" 200 -
+INFO:App:Entering User Login
+INFO:User:Entering user login
+WARNING:root:No user found with email sidra@gmail.com and the provided credentials.
+INFO:root:Database connection closed
+ERROR:User:Login error for sidra@gmail.com: No user found with the given credentials.
+ERROR:App:Invalid email or password
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:09] "[31m[1mPOST /user_login HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:34] "OPTIONS /user_login HTTP/1.1" 200 -
+INFO:App:Entering User Login
+INFO:User:Entering user login
+INFO:root:User sidra@gmail found in the database
+INFO:root:Database connection closed
+INFO:User:User sidra@gmail logged in successfully.
+INFO:App:User logged in successfully with userId: 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:34] "POST /user_login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:35] "OPTIONS /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state '','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+INFO:root:Courses retrieved successfully for user.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:Successfully retrieved 5 courses for state '' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:35] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:51] "OPTIONS /filtered_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:51] "OPTIONS /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state 's','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state 'sw','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+INFO:App:Entering get_courses_by_state route
+INFO:root:Connected to the database.
+INFO:App:Fetching courses with state 'swd','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+WARNING:root:No courses found for user_id.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:No courses found for state '' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:51] "POST /filtered_courses HTTP/1.1" 200 -
+WARNING:root:No courses found for user_id.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:No courses found for state '' and user_id 189
+INFO:root:Courses retrieved successfully for user.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:Successfully retrieved 3 courses for state '' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:51] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:51] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state 'swdd','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+WARNING:root:No courses found for user_id.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:No courses found for state '' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:51] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state 'swd','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+WARNING:root:No courses found for user_id.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:No courses found for state '' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:52] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state 'sw','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+WARNING:root:No courses found for user_id.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:No courses found for state '' and user_id 189
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state 's','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:53] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:root:Connected to the database.
+INFO:root:Courses retrieved successfully for user.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:Successfully retrieved 3 courses for state '' and user_id 189
+INFO:App:Entering get_courses_by_state route
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:53] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:App:Fetching courses with state '','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+INFO:root:Courses retrieved successfully for user.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:Successfully retrieved 5 courses for state '' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:07:53] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:04] "OPTIONS /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state '','', '' and 'OPEN' for user_id 189
+INFO:Course:Fetching courses with state 'OPEN' for user_id None
+INFO:root:Connected to the database.
+INFO:root:Courses retrieved successfully for user.
+INFO:Course:Successfully retrieved courses with state 'OPEN' for user_id None
+INFO:App:Successfully retrieved 5 courses for state 'OPEN' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:04] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state '','', '' and 'ACTIVE' for user_id 189
+INFO:Course:Fetching courses with state 'ACTIVE' for user_id None
+INFO:root:Connected to the database.
+WARNING:root:No courses found for user_id.
+INFO:Course:Successfully retrieved courses with state 'ACTIVE' for user_id None
+INFO:App:No courses found for state 'ACTIVE' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:06] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state '','', '' and 'OPEN' for user_id 189
+INFO:Course:Fetching courses with state 'OPEN' for user_id None
+INFO:root:Connected to the database.
+INFO:root:Courses retrieved successfully for user.
+INFO:Course:Successfully retrieved courses with state 'OPEN' for user_id None
+INFO:App:Successfully retrieved 5 courses for state 'OPEN' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:09] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:15] "OPTIONS /cancel_enrollment HTTP/1.1" 200 -
+INFO:App:Entering Cancel Enrollment endpoint.
+INFO:CourseEntrollment:Entering cancel_enrollment_request for student_id: 189 and course_id: 57
+INFO:root:Connected to the database.
+WARNING:root:No enrollment found to cancel for student 189 in course 57.
+WARNING:CourseEntrollment:No enrollment request found to cancel for student_id 189 in course_id 57.
+INFO:App:Enrollment request for student 189 in course 57 canceled successfully.
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:15] "POST /cancel_enrollment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:15] "OPTIONS /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state '','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+INFO:root:Courses retrieved successfully for user.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:Successfully retrieved 5 courses for state '' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:15] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:17] "OPTIONS /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 58
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 58: [(27, 'Assign', 'assignment', 'uploads\\Resume_-_Wajid_Ali.pdf'), (29, 'Assignment-5', 'assignment', 'uploads\\Database_concepts_and_interview_questions.docx'), (30, 'Assignment-1.1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 58
+INFO:App:Homework fetched: [{'file_id': 27, 'assignment_name': 'Assign', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Resume_-_Wajid_Ali.pdf'}, {'file_id': 29, 'assignment_name': 'Assignment-5', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Database_concepts_and_interview_questions.docx'}, {'file_id': 30, 'assignment_name': 'Assignment-1.1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 3 works for course_id 58
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:17] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:22] "[33mGET /uploads/Database_concepts_and_interview_questions.docx HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:25] "OPTIONS /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state '','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+INFO:root:Courses retrieved successfully for user.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:Successfully retrieved 5 courses for state '' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:25] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:26] "OPTIONS /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 58
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 58: [(27, 'Assign', 'assignment', 'uploads\\Resume_-_Wajid_Ali.pdf'), (29, 'Assignment-5', 'assignment', 'uploads\\Database_concepts_and_interview_questions.docx'), (30, 'Assignment-1.1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 58
+INFO:App:Homework fetched: [{'file_id': 27, 'assignment_name': 'Assign', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Resume_-_Wajid_Ali.pdf'}, {'file_id': 29, 'assignment_name': 'Assignment-5', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Database_concepts_and_interview_questions.docx'}, {'file_id': 30, 'assignment_name': 'Assignment-1.1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 3 works for course_id 58
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:26] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:29] "[33mGET /uploads/Resume_-_Wajid_Ali.pdf HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:33] "OPTIONS /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state '','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+INFO:root:Courses retrieved successfully for user.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:Successfully retrieved 5 courses for state '' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:33] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:36] "OPTIONS /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 58
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 58: [(27, 'Assign', 'assignment', 'uploads\\Resume_-_Wajid_Ali.pdf'), (29, 'Assignment-5', 'assignment', 'uploads\\Database_concepts_and_interview_questions.docx'), (30, 'Assignment-1.1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 58
+INFO:App:Homework fetched: [{'file_id': 27, 'assignment_name': 'Assign', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Resume_-_Wajid_Ali.pdf'}, {'file_id': 29, 'assignment_name': 'Assignment-5', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Database_concepts_and_interview_questions.docx'}, {'file_id': 30, 'assignment_name': 'Assignment-1.1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 3 works for course_id 58
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:36] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:08:44] "[33mGET /uploads/Database_concepts_and_interview_questions.docx HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:09:02] "OPTIONS /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state '','', '' and '' for user_id 189
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+INFO:root:Courses retrieved successfully for user.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:Successfully retrieved 5 courses for state '' and user_id 189
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:09:02] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:09:06] "OPTIONS /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 58
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 58: [(27, 'Assign', 'assignment', 'uploads\\Resume_-_Wajid_Ali.pdf'), (29, 'Assignment-5', 'assignment', 'uploads\\Database_concepts_and_interview_questions.docx'), (30, 'Assignment-1.1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 58
+INFO:App:Homework fetched: [{'file_id': 27, 'assignment_name': 'Assign', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Resume_-_Wajid_Ali.pdf'}, {'file_id': 29, 'assignment_name': 'Assignment-5', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Database_concepts_and_interview_questions.docx'}, {'file_id': 30, 'assignment_name': 'Assignment-1.1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 3 works for course_id 58
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:09:06] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 58
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 58: [(27, 'Assign', 'assignment', 'uploads\\Resume_-_Wajid_Ali.pdf'), (29, 'Assignment-5', 'assignment', 'uploads\\Database_concepts_and_interview_questions.docx'), (30, 'Assignment-1.1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 58
+INFO:App:Homework fetched: [{'file_id': 27, 'assignment_name': 'Assign', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Resume_-_Wajid_Ali.pdf'}, {'file_id': 29, 'assignment_name': 'Assignment-5', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Database_concepts_and_interview_questions.docx'}, {'file_id': 30, 'assignment_name': 'Assignment-1.1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 3 works for course_id 58
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:09:09] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:40:57] "OPTIONS /user_login HTTP/1.1" 200 -
+INFO:App:Entering User Login
+INFO:User:Entering user login
+INFO:App:Entering User Login
+INFO:User:Entering user login
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:41:03] "OPTIONS /user_login HTTP/1.1" 200 -
+INFO:App:Entering User Login
+INFO:User:Entering user login
+INFO:App:Entering User Login
+INFO:User:Entering user login
+INFO:root:User noor@gmail.com found in the database
+INFO:root:User noor@gmail.com found in the database
+INFO:root:Database connection closed
+INFO:User:User noor@gmail.com logged in successfully.
+INFO:root:Database connection closed
+INFO:root:User noor@gmail.com found in the database
+INFO:App:Entering User Login
+INFO:User:User noor@gmail.com logged in successfully.
+INFO:root:User noor@gmail.com found in the database
+INFO:User:Entering user login
+INFO:root:Database connection closed
+INFO:App:User logged in successfully with userId: 174
+INFO:root:Database connection closed
+INFO:User:User noor@gmail.com logged in successfully.
+INFO:User:User noor@gmail.com logged in successfully.
+INFO:App:User logged in successfully with userId: 174
+INFO:App:User logged in successfully with userId: 173
+INFO:App:User logged in successfully with userId: 173
+INFO:root:User noor@gmail.com found in the database
+INFO:root:Database connection closed
+INFO:User:User noor@gmail.com logged in successfully.
+INFO:App:User logged in successfully with userId: 174
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:41:04] "POST /user_login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:41:04] "POST /user_login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:41:04] "POST /user_login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:41:04] "POST /user_login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:41:04] "POST /user_login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:41:06] "OPTIONS /filtered_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state '','', '' and '' for user_id 173
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+INFO:root:Courses retrieved successfully for user.
+INFO:Course:Successfully retrieved courses with state '' for user_id None
+INFO:App:Successfully retrieved 5 courses for state '' and user_id 173
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:41:06] "POST /filtered_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:44:22] "OPTIONS /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 58
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 58: [(27, 'Assign', 'assignment', 'uploads\\Resume_-_Wajid_Ali.pdf'), (29, 'Assignment-5', 'assignment', 'uploads\\Database_concepts_and_interview_questions.docx'), (30, 'Assignment-1.1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 58
+INFO:App:Homework fetched: [{'file_id': 27, 'assignment_name': 'Assign', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Resume_-_Wajid_Ali.pdf'}, {'file_id': 29, 'assignment_name': 'Assignment-5', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Database_concepts_and_interview_questions.docx'}, {'file_id': 30, 'assignment_name': 'Assignment-1.1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 3 works for course_id 58
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:44:22] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 58
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 58: [(27, 'Assign', 'assignment', 'uploads\\Resume_-_Wajid_Ali.pdf'), (29, 'Assignment-5', 'assignment', 'uploads\\Database_concepts_and_interview_questions.docx'), (30, 'Assignment-1.1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 58
+INFO:App:Homework fetched: [{'file_id': 27, 'assignment_name': 'Assign', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Resume_-_Wajid_Ali.pdf'}, {'file_id': 29, 'assignment_name': 'Assignment-5', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Database_concepts_and_interview_questions.docx'}, {'file_id': 30, 'assignment_name': 'Assignment-1.1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 3 works for course_id 58
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:44:25] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:45:34] "OPTIONS /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 58
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 58: [(27, 'Assign', 'assignment', 'uploads\\Resume_-_Wajid_Ali.pdf'), (29, 'Assignment-5', 'assignment', 'uploads\\Database_concepts_and_interview_questions.docx'), (30, 'Assignment-1.1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 58
+INFO:App:Homework fetched: [{'file_id': 27, 'assignment_name': 'Assign', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Resume_-_Wajid_Ali.pdf'}, {'file_id': 29, 'assignment_name': 'Assignment-5', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Database_concepts_and_interview_questions.docx'}, {'file_id': 30, 'assignment_name': 'Assignment-1.1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 3 works for course_id 58
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:45:34] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:45:51] "OPTIONS /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 57
+INFO:root:Connected to the database.
+WARNING:root:No courses found for teacher_id: 57
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 57
+INFO:App:Homework fetched: []
+INFO:App:No works found for course_id 57
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:45:51] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 58
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 58: [(27, 'Assign', 'assignment', 'uploads\\Resume_-_Wajid_Ali.pdf'), (29, 'Assignment-5', 'assignment', 'uploads\\Database_concepts_and_interview_questions.docx'), (30, 'Assignment-1.1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 58
+INFO:App:Homework fetched: [{'file_id': 27, 'assignment_name': 'Assign', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Resume_-_Wajid_Ali.pdf'}, {'file_id': 29, 'assignment_name': 'Assignment-5', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Database_concepts_and_interview_questions.docx'}, {'file_id': 30, 'assignment_name': 'Assignment-1.1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 3 works for course_id 58
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:45:53] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 61
+INFO:root:Connected to the database.
+WARNING:root:No courses found for teacher_id: 61
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 61
+INFO:App:Homework fetched: []
+INFO:App:No works found for course_id 61
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:45:55] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:45:57] "OPTIONS /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 60
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 60: [(31, 'Assignment-1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 60
+INFO:App:Homework fetched: [{'file_id': 31, 'assignment_name': 'Assignment-1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 1 works for course_id 60
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:45:57] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 60
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 60: [(31, 'Assignment-1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 60
+INFO:App:Homework fetched: [{'file_id': 31, 'assignment_name': 'Assignment-1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 1 works for course_id 60
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:45:58] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 62
+INFO:root:Connected to the database.
+WARNING:root:No courses found for teacher_id: 62
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 62
+INFO:App:Homework fetched: []
+INFO:App:No works found for course_id 62
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:46:00] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:46:02] "OPTIONS /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 58
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 58: [(27, 'Assign', 'assignment', 'uploads\\Resume_-_Wajid_Ali.pdf'), (29, 'Assignment-5', 'assignment', 'uploads\\Database_concepts_and_interview_questions.docx'), (30, 'Assignment-1.1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 58
+INFO:App:Homework fetched: [{'file_id': 27, 'assignment_name': 'Assign', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Resume_-_Wajid_Ali.pdf'}, {'file_id': 29, 'assignment_name': 'Assignment-5', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Database_concepts_and_interview_questions.docx'}, {'file_id': 30, 'assignment_name': 'Assignment-1.1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 3 works for course_id 58
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:46:02] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:46:58] "OPTIONS /get_student_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 58
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 58: [(27, 'Assign', 'assignment', 'uploads\\Resume_-_Wajid_Ali.pdf'), (29, 'Assignment-5', 'assignment', 'uploads\\Database_concepts_and_interview_questions.docx'), (30, 'Assignment-1.1', 'assignment', 'uploads\\Supply_Register_Report.pdf')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 58
+INFO:App:Homework fetched: [{'file_id': 27, 'assignment_name': 'Assign', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Resume_-_Wajid_Ali.pdf'}, {'file_id': 29, 'assignment_name': 'Assignment-5', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Database_concepts_and_interview_questions.docx'}, {'file_id': 30, 'assignment_name': 'Assignment-1.1', 'file_type': 'assignment', 'file_path': 'http://127.0.0.1:5000/download/uploads\\Supply_Register_Report.pdf'}]
+INFO:App:Successfully retrieved 3 works for course_id 58
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:46:58] "POST /get_student_homework HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:48:18] "OPTIONS /user_login HTTP/1.1" 200 -
+INFO:App:Entering User Login
+INFO:User:Entering user login
+INFO:root:User huzaifa@gmail.com found in the database
+INFO:root:Database connection closed
+INFO:User:User huzaifa@gmail.com logged in successfully.
+INFO:App:User logged in successfully with userId: 178
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:48:18] "POST /user_login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:48:18] "OPTIONS /filter_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state '','', '' and '' for user_id 178
+INFO:Course:Fetching courses with state '' for user_id 178
+INFO:root:Connected to the database.
+INFO:root:Courses retrieved successfully for user_id 178
+INFO:Course:Successfully retrieved courses with state '' for user_id 178
+INFO:App:Successfully retrieved 5 courses for state '' and user_id 178
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:48:19] "POST /filter_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:52:15] "OPTIONS /get_course_homework HTTP/1.1" 200 -
+INFO:App:Entering get_teacher_homework
+INFO:TeacherAssignments:Fetching courses for user_id: 60
+INFO:root:Connected to the database.
+INFO:root:Homework found for teacher_id 60: [(31, 'Assignment-1', 'assignment', 'ACTIVE')]
+INFO:TeacherAssignments:Successfully retrieved homework for course_id: 60
+INFO:App:Homework fetched: [{'file_id': 31, 'assignment_name': 'Assignment-1', 'file_type': 'assignment', 'status': 'ACTIVE'}]
+INFO:App:Successfully retrieved 1 works for course_id 60
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:52:15] "POST /get_course_homework HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:53:59] "OPTIONS /filter_courses HTTP/1.1" 200 -
+INFO:App:Entering get_courses_by_state route
+INFO:App:Fetching courses with state '','', '' and '' for user_id 178
+INFO:Course:Fetching courses with state '' for user_id 178
+INFO:root:Connected to the database.
+INFO:root:Courses retrieved successfully for user_id 178
+INFO:Course:Successfully retrieved courses with state '' for user_id 178
+INFO:App:Successfully retrieved 5 courses for state '' and user_id 178
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:53:59] "POST /filter_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:54:35] "OPTIONS /user_login HTTP/1.1" 200 -
+INFO:App:Entering User Login
+INFO:User:Entering user login
+INFO:root:User admin@gmail.com found in the database
+INFO:root:Database connection closed
+INFO:User:User admin@gmail.com logged in successfully.
+INFO:App:User logged in successfully with userId: 1
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:54:37] "POST /user_login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:54:38] "OPTIONS /admin_filters HTTP/1.1" 200 -
+INFO:App:Entering get_all_courses route
+INFO:App:Entering get_courses_by_state route
+INFO:Course:Fetching all courses from the database.
+INFO:App:Fetching courses with state '','', '' and '' for user_id 1
+INFO:Course:Fetching courses with state '' for user_id None
+INFO:root:Connected to the database.
+INFO:root:Connected to the database.
+INFO:root:All courses retrieved successfully.
+INFO:Course:Successfully retrieved all courses.
+INFO:App:Successfully retrieved 5 courses.
+ERROR:root:Error retrieving courses for user to show. 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+WARNING:Course:No courses found with state '' for user_id None
+INFO:App:No courses found for state '' and user_id 1
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:54:39] "GET /get_all_courses HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:54:39] "POST /admin_filters HTTP/1.1" 200 -
+INFO:App:Entering get_all_courses route
+INFO:Course:Fetching all courses from the database.
+INFO:root:Connected to the database.
+INFO:root:All courses retrieved successfully.
+INFO:Course:Successfully retrieved all courses.
+INFO:App:Successfully retrieved 5 courses.
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:54:39] "GET /get_all_courses HTTP/1.1" 200 -
+INFO:App:Entering get_all_courses route
+INFO:Course:Fetching all courses from the database.
+INFO:root:Connected to the database.
+INFO:root:All courses retrieved successfully.
+INFO:Course:Successfully retrieved all courses.
+INFO:App:Successfully retrieved 5 courses.
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:54:39] "GET /get_all_courses HTTP/1.1" 200 -
+INFO:App:Entering get_all_courses route
+INFO:Course:Fetching all courses from the database.
+INFO:root:Connected to the database.
+INFO:root:All courses retrieved successfully.
+INFO:Course:Successfully retrieved all courses.
+INFO:App:Successfully retrieved 5 courses.
+INFO:werkzeug:127.0.0.1 - - [29/Jan/2025 13:54:39] "GET /get_all_courses HTTP/1.1" 200 -
